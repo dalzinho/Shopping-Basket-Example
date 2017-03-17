@@ -12,10 +12,10 @@ import static junit.framework.Assert.assertEquals;
 
 public class TestCalculator {
 
-    Basket basket;
-    Calculator calc;
-    Customer customerHasCard;
-    Customer customerHasNaeCard;
+    private Basket basket;
+    private Calculator calc;
+    private Customer customerHasCard;
+    private Customer customerHasNaeCard;
 
     @Before
     public void before(){
@@ -63,4 +63,14 @@ public class TestCalculator {
         assertEquals(0.98, calc.getFinalTotal(otherBasket));
     }
 
+    @Test
+    public void test_AllThreeDiscountsApply(){
+        Basket otherBasket = new Basket(customerHasCard);
+        otherBasket.addItem(TOY);
+        otherBasket.addItem(DAZ);
+        otherBasket.addItem(DAZ);
+        assertEquals(22.05, calc.getFinalTotal(otherBasket));
+
+
+    }
 }
