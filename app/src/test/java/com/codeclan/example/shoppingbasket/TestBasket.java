@@ -19,13 +19,14 @@ public class TestBasket {
     private Item washingUpLiquid;
     private Item ovenChips;
     private Item moreOvenChips;
+    private Customer customer;
 
     @Before
     public void before(){
-        basket = new Basket();
-        washingUpLiquid = new Item("Fairy Liquid", 2);
-        ovenChips = new Item("Oven Chips", 2);
-        moreOvenChips = new Item("Oven Chips", 2);
+
+        customer = new Customer(true);
+        basket = new Basket(customer);
+
     }
 
     @Test

@@ -11,4 +11,8 @@ public class Customer {
     public Customer(Boolean hasLoyaltyCard){
         this.hasLoyaltyCard = hasLoyaltyCard;
     }
+
+    public boolean hasLoyaltyCard() {
+        return hasLoyaltyCard;
+    }
 }

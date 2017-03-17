@@ -10,9 +10,15 @@ import java.util.HashMap;
 public class Basket {
 
     private ArrayList<PriceList> basketContents;
+    private Customer customer;
 
-    public Basket() {
-        basketContents = new ArrayList<>();
+    public Basket(Customer customer) {
+        this.basketContents = new ArrayList<>();
+        this.customer = customer;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
     public ArrayList<PriceList> getBasketContents() {

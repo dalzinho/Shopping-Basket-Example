@@ -14,11 +14,15 @@ public class TestCalculator {
 
     Basket basket;
     Calculator calc;
+    Customer customerHasCard;
+    Customer customerHasNaeCard;
 
     @Before
     public void before(){
         calc = new Calculator();
-        basket = new Basket();
+        customerHasCard = new Customer(true);
+        customerHasNaeCard = new Customer(false);
+        basket = new Basket(customerHasNaeCard);
     }
 
     @Test
@@ -50,6 +54,13 @@ public class TestCalculator {
         basket.addItem(DAZ);
         basket.addItem(DAZ);
         assertEquals(calc.getFinalTotal(basket), 22.5);
+    }
+
+    @Test
+    public void test_CardCarryingCustomerGetsTwoPercentDiscount(){
+        Basket otherBasket = new Basket(customerHasCard);
+        otherBasket.addItem(POTNOODLE);
+        assertEquals(0.98, calc.getFinalTotal(otherBasket));
     }
 
 }

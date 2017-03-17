@@ -40,6 +40,9 @@ public class Calculator {
         if (this.subTotal >= 20){
             applyTenPercentDiscount();
         }
+        if (basket.getCustomer().hasLoyaltyCard()){
+            applyTwoPercentDiscount();
+        }
         return subTotal;
     }
 }
