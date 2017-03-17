@@ -24,14 +24,14 @@ public class TestCalculator {
     @Test
     public void testCalculatesPriceOfSingleItems(){
         basket.addItem(DAZ);
-        assertEquals(5, calc.sumBasketItems(basket));
+        assertEquals(5.0, calc.getFinalTotal(basket));
     }
 
     @Test
     public void testBOGOFforSetOfTwo(){
         basket.addItem(DAZ);
         basket.addItem(DAZ);
-        assertEquals(5, calc.sumBasketItems(basket));
+        assertEquals(5.0, calc.getFinalTotal(basket));
     }
 
     @Test
@@ -41,13 +41,15 @@ public class TestCalculator {
         basket.addItem(DAZ);
         basket.addItem(DAZ);
         basket.addItem(DAZ);
-        assertEquals(15, calc.sumBasketItems(basket));
+        assertEquals(15.0, calc.getFinalTotal(basket));
     }
 
     @Test
-    public void testTenPercentDiscount(){
+    public void test_calculatesTotalAndAppliesTenPercentDiscount(){
         basket.addItem(TOY);
-        assertEquals(18, calc.tenPercentDiscount(basket));
+        basket.addItem(DAZ);
+        basket.addItem(DAZ);
+        assertEquals(calc.getFinalTotal(basket), 22.5);
     }
 
 }

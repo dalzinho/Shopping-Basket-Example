@@ -8,26 +8,38 @@ import java.util.HashMap;
 
 public class Calculator {
 
-    public int sumBasketItems(Basket basket){
-        int total = 0;
+    private Double subTotal;
+
+    public Calculator(){
+        this.subTotal = 0.0;
+    }
+
+    public void sumBasketItems(Basket basket){
         HashMap<PriceList, Integer> itemsMap = basket.itemsMap();
         for (PriceList item : itemsMap.keySet()){
             int itemPrice = item.getPrice();
             int itemQuantity = itemsMap.get(item);
             if(itemsMap.get(item) > 1){
-                total += itemPrice * ((itemQuantity / 2) + (itemQuantity % 2));
+                this.subTotal += itemPrice * ((itemQuantity / 2) + (itemQuantity % 2));
             } else {
-                total += itemPrice;
+                this.subTotal += itemPrice;
             }
         }
-        return total;
     }
 
-    public int tenPercentDiscount(Basket basket){
-        int total = sumBasketItems(basket);
-        if (total >= 20){
-            total = (int) (total * 0.9);
+    public void applyTenPercentDiscount(){
+        this.subTotal = this.subTotal * 0.9;
+    }
+
+    public void applyTwoPercentDiscount(){
+        this.subTotal = this.subTotal * 0.98;
+    }
+
+    public Double getFinalTotal(Basket basket){
+        sumBasketItems(basket);
+        if (this.subTotal >= 20){
+            applyTenPercentDiscount();
         }
-        return total;
+        return subTotal;
     }
 }
