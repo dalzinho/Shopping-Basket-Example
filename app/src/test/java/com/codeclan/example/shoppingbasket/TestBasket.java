@@ -3,9 +3,7 @@ package com.codeclan.example.shoppingbasket;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashMap;
-
-import static com.codeclan.example.shoppingbasket.PriceList.*;
+import static com.codeclan.example.shoppingbasket.Item.*;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
@@ -16,9 +14,6 @@ import static junit.framework.Assert.assertTrue;
 public class TestBasket {
 
     private Basket basket;
-    private Item washingUpLiquid;
-    private Item ovenChips;
-    private Item moreOvenChips;
     private Customer customer;
 
     @Before

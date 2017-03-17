@@ -3,7 +3,7 @@ package com.codeclan.example.shoppingbasket;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.codeclan.example.shoppingbasket.PriceList.*;
+import static com.codeclan.example.shoppingbasket.Item.*;
 import static junit.framework.Assert.assertEquals;
 
 /**

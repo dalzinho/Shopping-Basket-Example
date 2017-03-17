@@ -15,8 +15,8 @@ public class Calculator {
     }
 
     public void sumBasketItems(Basket basket){
-        HashMap<PriceList, Integer> itemsMap = basket.itemsMap();
-        for (PriceList item : itemsMap.keySet()){
+        HashMap<Item, Integer> itemsMap = basket.itemsMap();
+        for (Item item : itemsMap.keySet()){
             int itemPrice = item.getPrice();
             int itemQuantity = itemsMap.get(item);
             if(itemsMap.get(item) > 1){

@@ -4,21 +4,21 @@ package com.codeclan.example.shoppingbasket;
  * Created by user on 17/03/2017.
  */
 
-public class Item {
+public enum Item {
+    DAZ(5),
+    OVENCHIPS(1),
+    POTNOODLE(1),
+    FAIRYLIQUID(2),
+    TOY(20);
 
-    String itemName;
-    int price;
 
-    public Item(String itemName, int price){
-        this.itemName = itemName;
+    private int price;
+
+    Item(int price){
         this.price = price;
     }
 
-    public String getItemName() {
-        return itemName;
-    }
-
-    public int getPrice() {
+    public int getPrice(){
         return price;
     }
 }

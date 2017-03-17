@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Basket {
 
-    private ArrayList<PriceList> basketContents;
+    private ArrayList<Item> basketContents;
     private Customer customer;
 
     public Basket(Customer customer) {
@@ -21,7 +21,7 @@ public class Basket {
         return customer;
     }
 
-    public ArrayList<PriceList> getBasketContents() {
+    public ArrayList<Item> getBasketContents() {
         return basketContents;
     }
 
@@ -29,7 +29,7 @@ public class Basket {
         return basketContents.size();
     }
 
-    public void addItem(PriceList item) {
+    public void addItem(Item item) {
         basketContents.add(item);
     }
 
@@ -38,9 +38,9 @@ public class Basket {
         basketContents.clear();
     }
 
-    public HashMap<PriceList, Integer> itemsMap(){
-        HashMap<PriceList, Integer> items = new HashMap<>();
-        for (PriceList item : basketContents){
+    public HashMap<Item, Integer> itemsMap(){
+        HashMap<Item, Integer> items = new HashMap<>();
+        for (Item item : basketContents){
             if (items.containsKey(item)){
                 int itemCount = items.get(item);
                 items.put(item, itemCount + 1);
