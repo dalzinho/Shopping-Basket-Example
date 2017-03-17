@@ -15,6 +15,10 @@ public class Basket {
         basketContents = new ArrayList<>();
     }
 
+    public ArrayList<Item> getBasketContents() {
+        return basketContents;
+    }
+
     public int countItems() {
         return basketContents.size();
     }
