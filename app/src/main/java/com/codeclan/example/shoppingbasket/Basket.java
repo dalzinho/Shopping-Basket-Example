@@ -9,13 +9,13 @@ import java.util.HashMap;
 
 public class Basket {
 
-    private ArrayList<Item> basketContents;
+    private ArrayList<PriceList> basketContents;
 
     public Basket() {
         basketContents = new ArrayList<>();
     }
 
-    public ArrayList<Item> getBasketContents() {
+    public ArrayList<PriceList> getBasketContents() {
         return basketContents;
     }
 
@@ -23,7 +23,7 @@ public class Basket {
         return basketContents.size();
     }
 
-    public void addItem(Item item) {
+    public void addItem(PriceList item) {
         basketContents.add(item);
     }
 
@@ -32,14 +32,14 @@ public class Basket {
         basketContents.clear();
     }
 
-    public HashMap<String, Integer> itemsMap(){
-        HashMap<String, Integer> items = new HashMap<>();
-        for (Item item : basketContents){
-            if (items.containsKey(item.getItemName())){
-                int itemCount = items.get(item.getItemName());
-                items.put(item.getItemName(), itemCount + 1);
+    public HashMap<PriceList, Integer> itemsMap(){
+        HashMap<PriceList, Integer> items = new HashMap<>();
+        for (PriceList item : basketContents){
+            if (items.containsKey(item)){
+                int itemCount = items.get(item);
+                items.put(item, itemCount + 1);
             } else {
-                items.put(item.getItemName(), 1);
+                items.put(item, 1);
             }
         }
         return items;

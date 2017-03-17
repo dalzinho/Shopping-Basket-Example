@@ -3,6 +3,7 @@ package com.codeclan.example.shoppingbasket;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.codeclan.example.shoppingbasket.PriceList.*;
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -18,13 +19,15 @@ public class TestCalculator {
     public void before(){
         calc = new Calculator();
         basket = new Basket();
-        basket.addItem(new Item("Daz", 4));
-        basket.addItem(new Item("Head and Shoulders", 1));
+        basket.addItem(DAZ);
     }
 
     @Test
     public void testCalculatesPriceOfSingleItems(){
         assertEquals(5, calc.totalPrice(basket));
     }
+
+//    @Test
+//    public void test
 
 }

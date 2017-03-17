@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
+import static com.codeclan.example.shoppingbasket.PriceList.*;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
@@ -34,26 +35,26 @@ public class TestBasket {
 
     @Test
     public void testCanAddItemToBasket(){
-        basket.addItem(washingUpLiquid);
+        basket.addItem(DAZ);
         assertEquals(1, basket.countItems());
     }
 
     @Test
     public void testCanEmptyBasket(){
-        basket.addItem(washingUpLiquid);
-        basket.addItem(washingUpLiquid);
+        basket.addItem(FAIRYLIQUID);
+        basket.addItem(FAIRYLIQUID);
         basket.empty();
         assertEquals(0, basket.countItems());
     }
 
     @Test
     public void testBasketCanReturnHashMapOfItems(){
-        basket.addItem(washingUpLiquid);
-        basket.addItem(ovenChips);
-        basket.addItem(moreOvenChips);
+        basket.addItem(FAIRYLIQUID);
+        basket.addItem(OVENCHIPS);
+        basket.addItem(OVENCHIPS);
 
         assertTrue(!basket.itemsMap().isEmpty());
-        assertEquals(basket.itemsMap().get("Oven Chips"), Integer.valueOf(2));
+        assertEquals(basket.itemsMap().get(OVENCHIPS), Integer.valueOf(2));
     }
 
 }
