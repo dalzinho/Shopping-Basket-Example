@@ -19,15 +19,29 @@ public class TestCalculator {
     public void before(){
         calc = new Calculator();
         basket = new Basket();
-        basket.addItem(DAZ);
     }
 
     @Test
     public void testCalculatesPriceOfSingleItems(){
+        basket.addItem(DAZ);
         assertEquals(5, calc.totalPrice(basket));
     }
 
-//    @Test
-//    public void test
+    @Test
+    public void testBOGOFforSetOfTwo(){
+        basket.addItem(DAZ);
+        basket.addItem(DAZ);
+        assertEquals(5, calc.sumBogofs(basket));
+    }
+
+    @Test
+    public void testBOGOFforOddQuantities(){
+        basket.addItem(DAZ);
+        basket.addItem(DAZ);
+        basket.addItem(DAZ);
+        basket.addItem(DAZ);
+        basket.addItem(DAZ);
+        assertEquals(15, calc.sumBogofs(basket));
+    }
 
 }
