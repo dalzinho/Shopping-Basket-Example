@@ -43,6 +43,6 @@ public class Calculator {
         if (basket.getCustomer().hasLoyaltyCard()){
             applyTwoPercentDiscount();
         }
-        return subTotal;
+        return (double)Math.round(subTotal * 100)/100;
     }
 }

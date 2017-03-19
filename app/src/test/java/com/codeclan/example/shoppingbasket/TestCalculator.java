@@ -77,7 +77,7 @@ public class TestCalculator {
         otherBasket.addItem(new Item(ovenChips));
         otherBasket.addItem(new Item(ovenChips));
 
-        assertEquals(19.404, calc.getFinalTotal(otherBasket));
+        assertEquals(19.40, calc.getFinalTotal(otherBasket));
 
 
     }
