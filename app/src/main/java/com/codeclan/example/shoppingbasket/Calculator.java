@@ -14,7 +14,7 @@ public class Calculator {
         this.subTotal = 0.0;
     }
 
-    public void sumBasketItems(Basket basket){
+    private void sumBasketItems(Basket basket){
         HashMap<String, Integer> itemsMap = basket.itemsMap();
         for (String sku : itemsMap.keySet()){
             float itemPrice = basket.getPriceBySku(sku);
@@ -27,11 +27,11 @@ public class Calculator {
         }
     }
 
-    public void applyTenPercentDiscount(){
+    private void applyTenPercentDiscount(){
         this.subTotal = this.subTotal * 0.9;
     }
 
-    public void applyTwoPercentDiscount(){
+    private void applyTwoPercentDiscount(){
         this.subTotal = this.subTotal * 0.98;
     }
 
