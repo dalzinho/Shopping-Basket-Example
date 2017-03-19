@@ -17,6 +17,9 @@ public class TestCalculator {
     private Calculator calc;
     private Customer customerHasCard;
     private Customer customerHasNaeCard;
+    private String[] ovenChips = {"AAA002", "Oven Chips", "2.0"};
+    private String[] toy = {"AAA001", "Train Set", "20."};
+    private String[] potNoodle = {"AAA003", "Bombay Bad Boy", "1."};
 
     @Before
     public void before(){
@@ -29,48 +32,51 @@ public class TestCalculator {
 
     @Test
     public void testCalculatesPriceOfSingleItems(){
-        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(ovenChips));
         assertEquals(2.0, calc.getFinalTotal(basket));
     }
 
     @Test
     public void testBOGOFforSetOfTwo(){
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
         assertEquals(2.0, calc.getFinalTotal(basket));
     }
 
     @Test
     public void testBOGOFforOddQuantities(){
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+
 
         assertEquals(6.0, calc.getFinalTotal(basket));
     }
 
     @Test
     public void test_calculatesTotalAndAppliesTenPercentDiscount(){
-        basket.addItem(new Item(Shelf.toy()));
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(toy));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+
 
         assertEquals(calc.getFinalTotal(basket), 19.8);
     }
 
     @Test
     public void test_CardCarryingCustomerGetsTwoPercentDiscount(){
-        otherBasket.addItem(new Item(Shelf.potNoodle()));
+        otherBasket.addItem(new Item(potNoodle));
         assertEquals(0.98, calc.getFinalTotal(otherBasket));
     }
 
     @Test
     public void test_AllThreeDiscountsApply(){
-        otherBasket.addItem(new Item(Shelf.toy()));
-        otherBasket.addItem(new Item(Shelf.ovenChips()));
-        otherBasket.addItem(new Item(Shelf.ovenChips()));
+        otherBasket.addItem(new Item(toy));
+        otherBasket.addItem(new Item(ovenChips));
+        otherBasket.addItem(new Item(ovenChips));
+
         assertEquals(19.404, calc.getFinalTotal(otherBasket));
 
 

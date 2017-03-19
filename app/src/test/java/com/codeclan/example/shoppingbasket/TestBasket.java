@@ -14,6 +14,8 @@ public class TestBasket {
 
     private Basket basket;
     private Customer customer;
+    private String[] ovenChips = {"AAA002", "Oven Chips", "2.0"};
+    private String[] toy = {"AAA001", "Train Set", "20."};
 
     @Before
     public void before(){
@@ -30,15 +32,15 @@ public class TestBasket {
 
     @Test
     public void testCanAddItemToBasket(){
-        Item item = new Item(Shelf.ovenChips());
+        Item item = new Item(ovenChips);
         basket.addItem(item);
         assertEquals(1, basket.countItems());
     }
 
     @Test
     public void testCanEmptyBasket(){
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
         assertEquals(2, basket.countItems());
         basket.empty();
         assertEquals(0, basket.countItems());
@@ -46,9 +48,9 @@ public class TestBasket {
 
     @Test
     public void testBasketCanReturnHashMapOfItems(){
-        basket.addItem(new Item(Shelf.toy()));
-        basket.addItem(new Item(Shelf.ovenChips()));
-        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(toy));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
 
         assertTrue(!basket.itemsMap().isEmpty());
         assertEquals(basket.itemsMap().get("AAA002"), Integer.valueOf(2));
