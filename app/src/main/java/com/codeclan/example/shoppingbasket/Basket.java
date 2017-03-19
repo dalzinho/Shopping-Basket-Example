@@ -33,6 +33,18 @@ public class Basket {
         basketContents.add(item);
     }
 
+    public void removeLastItem(){
+        basketContents.remove(basketContents.size() - 1);
+    }
+
+    public void removeOneBySKU(String sku){
+        for (Item item : basketContents){
+            if (item.getSku().equals(sku)){
+                basketContents.remove(item);
+                break;
+            }
+        }
+    }
 
     public void empty() {
         basketContents.clear();

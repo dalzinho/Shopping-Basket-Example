@@ -32,10 +32,29 @@ public class TestBasket {
 
     @Test
     public void testCanAddItemToBasket(){
-        Item item = new Item(ovenChips);
-        basket.addItem(item);
+        basket.addItem(new Item(ovenChips));
         assertEquals(1, basket.countItems());
     }
+
+    @Test
+    public void testCanRemoveLastItemFromBasket(){
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.removeLastItem();
+        assertEquals(1, basket.countItems());
+    }
+
+    @Test
+    public void testCanRemoveOneItemBySKU(){
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.removeOneBySKU("AAA002");
+        assertEquals(2, basket.countItems());
+    }
+
+    @Test
+    public void test
 
     @Test
     public void testCanEmptyBasket(){
