@@ -54,7 +54,13 @@ public class TestBasket {
     }
 
     @Test
-    public void test
+    public void testRemovesNoneIfSKUnotFound(){
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.removeOneBySKU("AAA001");
+        assertEquals(3, basket.countItems());
+    }
 
     @Test
     public void testCanEmptyBasket(){
