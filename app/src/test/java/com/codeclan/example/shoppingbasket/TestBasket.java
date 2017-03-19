@@ -3,7 +3,6 @@ package com.codeclan.example.shoppingbasket;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.codeclan.example.shoppingbasket.Item.*;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
 
@@ -31,26 +30,28 @@ public class TestBasket {
 
     @Test
     public void testCanAddItemToBasket(){
-        basket.addItem(DAZ);
+        Item item = new Item(Shelf.ovenChips());
+        basket.addItem(item);
         assertEquals(1, basket.countItems());
     }
 
     @Test
     public void testCanEmptyBasket(){
-        basket.addItem(FAIRYLIQUID);
-        basket.addItem(FAIRYLIQUID);
+        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(Shelf.ovenChips()));
+        assertEquals(2, basket.countItems());
         basket.empty();
         assertEquals(0, basket.countItems());
     }
 
     @Test
     public void testBasketCanReturnHashMapOfItems(){
-        basket.addItem(FAIRYLIQUID);
-        basket.addItem(OVENCHIPS);
-        basket.addItem(OVENCHIPS);
+        basket.addItem(new Item(Shelf.toy()));
+        basket.addItem(new Item(Shelf.ovenChips()));
+        basket.addItem(new Item(Shelf.ovenChips()));
 
         assertTrue(!basket.itemsMap().isEmpty());
-        assertEquals(basket.itemsMap().get(OVENCHIPS), Integer.valueOf(2));
+        assertEquals(basket.itemsMap().get("AAA002"), Integer.valueOf(2));
     }
 
 }

@@ -38,16 +38,25 @@ public class Basket {
         basketContents.clear();
     }
 
-    public HashMap<Item, Integer> itemsMap(){
-        HashMap<Item, Integer> items = new HashMap<>();
+    public HashMap<String, Integer> itemsMap(){
+        HashMap<String, Integer> items = new HashMap<>();
         for (Item item : basketContents){
-            if (items.containsKey(item)){
-                int itemCount = items.get(item);
-                items.put(item, itemCount + 1);
+            if (items.containsKey(item.getSku())){
+                int itemCount = items.get(item.getSku());
+                items.put(item.getSku(), itemCount + 1);
             } else {
-                items.put(item, 1);
+                items.put(item.getSku(), 1);
             }
         }
         return items;
+    }
+
+    public float getPriceBySku(String sku){
+        for (Item item : basketContents){
+            if(item.getSku().equals(sku)){
+                return item.getPrice();
+            }
+        }
+        return 0;
     }
 }

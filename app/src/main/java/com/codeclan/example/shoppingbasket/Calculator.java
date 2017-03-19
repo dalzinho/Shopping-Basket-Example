@@ -15,11 +15,11 @@ public class Calculator {
     }
 
     public void sumBasketItems(Basket basket){
-        HashMap<Item, Integer> itemsMap = basket.itemsMap();
-        for (Item item : itemsMap.keySet()){
-            int itemPrice = item.getPrice();
-            int itemQuantity = itemsMap.get(item);
-            if(itemsMap.get(item) > 1){
+        HashMap<String, Integer> itemsMap = basket.itemsMap();
+        for (String sku : itemsMap.keySet()){
+            float itemPrice = basket.getPriceBySku(sku);
+            int itemQuantity = itemsMap.get(sku);
+            if(itemsMap.get(sku) > 1){
                 this.subTotal += itemPrice * ((itemQuantity / 2) + (itemQuantity % 2));
             } else {
                 this.subTotal += itemPrice;
