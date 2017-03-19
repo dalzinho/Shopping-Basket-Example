@@ -58,11 +58,8 @@ public class TestCalculator {
     @Test
     public void test_calculatesTotalAndAppliesTenPercentDiscount(){
         basket.addItem(new Item(toy));
-        basket.addItem(new Item(ovenChips));
-        basket.addItem(new Item(ovenChips));
 
-
-        assertEquals(calc.getFinalTotal(basket), 19.8);
+        assertEquals(calc.getFinalTotal(basket), 18.);
     }
 
     @Test
