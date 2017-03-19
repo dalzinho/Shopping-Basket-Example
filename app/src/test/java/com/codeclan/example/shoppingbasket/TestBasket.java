@@ -47,10 +47,11 @@ public class TestBasket {
     @Test
     public void testCanRemoveOneItemBySKU(){
         basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(toy));
         basket.addItem(new Item(ovenChips));
         basket.addItem(new Item(ovenChips));
         basket.removeOneBySKU("AAA002");
-        assertEquals(2, basket.countItems());
+        assertEquals(3, basket.countItems());
     }
 
     @Test
@@ -60,6 +61,17 @@ public class TestBasket {
         basket.addItem(new Item(ovenChips));
         basket.removeOneBySKU("AAA001");
         assertEquals(3, basket.countItems());
+    }
+
+    @Test
+    public void testRemoveAllBySKU(){
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(ovenChips));
+        basket.addItem(new Item(toy));
+        basket.removeAllBySKU("AAA002");
+        assertEquals(1, basket.countItems());
+
     }
 
     @Test

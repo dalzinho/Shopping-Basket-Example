@@ -2,6 +2,7 @@ package com.codeclan.example.shoppingbasket;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Created by user on 17/03/2017.
@@ -42,6 +43,23 @@ public class Basket {
             if (item.getSku().equals(sku)){
                 basketContents.remove(item);
                 break;
+            }
+        }
+    }
+
+    public void removeAllBySKU(String sku){
+
+        // I did this similarly to the above 'removeOne' method and got a concurrent modification error!
+        // Thanks to the good people on this thread: http://stackoverflow.com/questions/18448671/how-to-avoid-concurrentmodificationexception-while-removing-elements-from-arr
+        //for their help and support!
+
+        Iterator<Item> iterator = basketContents.iterator();
+
+        while(iterator.hasNext()){
+            Item item = iterator.next();
+
+            if(item.getSku().equals(sku)){
+                iterator.remove();
             }
         }
     }
